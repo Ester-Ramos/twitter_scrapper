@@ -36,7 +36,7 @@ class TweetManager:
             # Remove incomplete tweets withheld by Twitter Guidelines
             scraped_tweets.remove('div.withheld-tweet')
             tweets = scraped_tweets('div.js-stream-tweet')
-            
+
 
 
             if len(tweets) == 0:
@@ -121,15 +121,12 @@ class TweetManager:
         if args.near is not None:
             url_get_data += "&near:" + args.near + " within:" + args.within
 
-        if args.toptweets is True:
-            url = "https://twitter.com/i/search/timeline?q=%s&src=typd&max_position=%s"
-
         if args.language is not None:
-            url_lang = 'lang=' + args.language + '&'
+            url_lang = 'l=' + args.language + '&'
         else:
             url_lang = ''
         url = url % (urllib.parse.quote(url_get_data), url_lang, refresh_cursor)
-        # print(url)
+        print(url)
 
         headers = [
             ('Host',  "twitter.com"),

@@ -1,5 +1,5 @@
 import argparse, datetime
-import manager
+from tweet_manager import TweetManager
 import json
 
 def main():
@@ -25,14 +25,12 @@ def main():
                                   default="15mi",
                                   help='A distance radius from "near" location. Default: "15mi"')
         tweet_parser.add_argument('--language',
-                                  help='Language of the tweets')
+                                  default="en"
+                                  help='Language of the tweets(default: english)')
         tweet_parser.add_argument('--maxtweets',
                                   type=int,
                                   default=0,
                                   help='The maximun number of tweets to retrieve')
-        tweet_parser.add_argument('--toptweets',
-                                  action='store_true',
-                                  help='Only the tweets provided as top tweets by Twitter')
         tweet_parser.add_argument('--output',
                                   type=str,
                                   default="output.json",
@@ -46,19 +44,18 @@ def main():
         def receive_buffer(tweets):
             for t in tweets:
                 all_tweets.append({"username": t.username,
-                                   "id": t.id
-                                   "permalink": t.permalink
+                                   "id": t.id,
+                                   "permalink": t.permalink,
                                    "timestamp": t.date.strftime("%Y-%m-%d %H:%M"),
                                    "tweet": t.text,
                                    "retweets": t.retweets,
                                    "favorites": t.favorites,
                                    "mentions": t.mentions,
                                    "hashtags": t.hashtags,
-                                   "geo": t.geo
-                                   "urls": t.urls}
+                                   }
                                    )
 
-        manager.TweetManager.get_tweets(args, receive_buffer)
+        TweetManager.get_tweets(args, receive_buffer)
         with open(args.output, 'w') as f:
             f.write(json.dumps(all_tweets, ensure_ascii=False, sort_keys=True, indent=4)+'\n')
 
