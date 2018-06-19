@@ -32,14 +32,15 @@ To use this code you need to execute **search_tweets.py**
 
 with at least one of the following arguments:
 
- - --username
- - --since
- - --until
- - --query
- - --near
- - --within
- - --maxtweets
- - --output
+ - --username: Username of a twitter account (without @)
+ - --since: Start of datetime window (YYY-MM-DD)
+ - --until: End of datetime window (YYYY-MM-DD)
+ - --query: A query text to be matched
+ - --near: A reference location area from where tweets were generated
+ - --within: A distance radius from 'near' location
+ - --language: Language of the tweets
+ - --maxtweets: Maximun number of tweets to retrieve
+ - --output: A filname to export the results
 
 ## What do you get?
 
