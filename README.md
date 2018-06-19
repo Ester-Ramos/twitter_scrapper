@@ -15,7 +15,7 @@ This code imitates how Twitter Search through a browser works: when you enter on
 
 ## Gender Pay Gap DataHack
 
-We gathered thousands of tweets from December 2017 until June 2018 and you can find them in [pay_gap_data](.pay_gap_data)
+We gathered thousands of tweets from December 2017 until June 2018 and you can find them in [pay_gap_data](./pay_gap_data). You are very welcome to use this data or to do yyour own custom queries.
 
 ## Prerequisites
 
