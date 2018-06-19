@@ -10,8 +10,8 @@ This code is based on this one:
 
 It has been rewrote to work properly on Python3. There's work still in progress (use of more modern libraries, changes in style to conform to PEP8, etc)
 
-Twitter Official API has the bother limitation of time constraints, you can't get older tweets than a week. Some tools provide access to older tweets but in the most of them you have to spend some money before.
-This code imitates how Twitter Search through a browser works: when you enter on Twitter a scroll loader starts, if you scroll down to get more and more tweets, all through calls to a JSON provider.
+Twitter Official API has the bother limitation of time constraints: you can't get older tweets than a week. Some tools provide access to older tweets but in the most of them you have to spend some money before.
+This code imitates how Twitter Search through a browser works: when you enter on Twitter a scroll loader starts, if you scroll down you get more and more tweets, all through calls to a JSON provider.
 
 ## Prerequisites
 
@@ -23,8 +23,28 @@ Expected package dependencies are listed in the "requirements.txt" file for PIP,
     pip install -r requirements.txt
 ```
 
-## Components
-- **Tweet:** Gives some information about a specific tweet.
+## Usage
+
+To use this code you need to execute **search_tweets.py**
+```
+    python search_tweets.py [args]
+```
+
+with at least one of the following arguments:
+
+ - --username
+ - --since
+ - --until
+ - --query
+ - --near
+ - --within
+ - --maxtweets
+ - --output
+
+## What do you get?
+
+The output is a json file with a name of your choosing or "output.json" as default. The file has all the tweets that match your query, each tweet with the following information:
+
   - id (str)
   - permalink (str)
   - username (str)
@@ -34,12 +54,6 @@ Expected package dependencies are listed in the "requirements.txt" file for PIP,
   - favorites (int)
   - mentions (str)
   - hashtags (str)
-  - geo (str)
-
-- **TweetManager:** (WIP)A manager class to help getting tweets in **Tweet**'s model.
-  - getTweets (**TwitterCriteria**): Return the list of tweets retrieved by using an instance of **TwitterCriteria**.
-
-- **search_tweets:** Export tweets to a json file.
 
 
 ## Examples of command-line usage
@@ -53,7 +67,7 @@ Expected package dependencies are listed in the "requirements.txt" file for PIP,
 ```    
 - Get tweets by query search
 ```
-    python search_tweets.py --query "europe refugees" --maxtweets 1
+    python search_tweets.py --query "#paygap" --maxtweets 30
 ```    
 - Get tweets by username and bound dates
 ```
