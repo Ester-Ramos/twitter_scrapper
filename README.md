@@ -13,9 +13,13 @@ It has been rewrote to work properly on Python3. There's work still in progress 
 Twitter Official API has the bother limitation of time constraints: you can't get older tweets than a week. Some tools provide access to older tweets but in the most of them you have to spend some money before.
 This code imitates how Twitter Search through a browser works: when you enter on Twitter a scroll loader starts, if you scroll down you get more and more tweets, all through calls to a JSON provider.
 
+## Gender Pay Gap DataHack
+
+We gathered thousands of tweets from December 2017 until June 2018 and you can find them in [pay_gap_data](.pay_gap_data)
+
 ## Prerequisites
 
-The code has been modified to be used with Python3 and I has not been tested in Python2.
+The code has been modified to be used with Python3 and it has not been tested in Python2.
 
 Expected package dependencies are listed in the "requirements.txt" file for PIP, you need to run the following command to get dependencies:
 
